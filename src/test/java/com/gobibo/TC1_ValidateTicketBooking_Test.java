@@ -7,6 +7,7 @@ import com.relevantcodes.extentreports.LogStatus;
 import org.testng.Assert;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import java.io.IOException;
 import java.text.DateFormat;
@@ -23,12 +24,17 @@ public class TC1_ValidateTicketBooking_Test extends TestBase {
         LocalDateTime now = LocalDateTime.now();
         String dateToSelect =  dtf.format(now);
 
+        @BeforeClass
+        public void before() {
+            //reading
+        }
     @Test
         public void validateTicketBooking_TC1() {
             extentTest = extentReports.startTest("TC1_ValidateTicketBooking");
             log.info("Start Test :: TC1 Validate ticket booking");
             initialize();
             flightsPage = new FlightsPage();
+            Assert.fail();
             flightsPage.selectFromLocation(fromLocation);
             log.info("Selected From Location");
             flightsPage.selectToLocation(toLocation);

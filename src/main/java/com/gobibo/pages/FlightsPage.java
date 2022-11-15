@@ -10,6 +10,8 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
+
 public class FlightsPage extends TestBase {
     WebDriver driver;
 
@@ -51,6 +53,9 @@ public class FlightsPage extends TestBase {
 
     @FindBy(id = "autoSuggest-list")
     WebElement autoSuggest;
+
+    @FindBy(xpath = "//div[text()='Filters']")
+    private WebElement filters;
 
     public FlightsPage() {
         PageFactory.initElements(webDriver.get(), this);
@@ -103,11 +108,19 @@ public class FlightsPage extends TestBase {
     }
 
     public boolean isTicketDetailsDisplayed() {
+        WebDriverWait wait = new WebDriverWait(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(ticketDetails));
         return ticketDetails.isDisplayed();
     }
 
     public boolean isFareSummaryDisplayed() {
         return fareSummary.isDisplayed();
+    }
+
+    public boolean isFiltersDisplayed() {
+        WebDriverWait wait = new WebDriverWait(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(filters));
+        return filters.isDisplayed();
     }
 
 }
