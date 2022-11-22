@@ -15,52 +15,52 @@ public class BusPage extends TestBase{
 	
 	
 	@FindBy(xpath="//span[@class='header-sprite nav-icon-bus gr-append-right5']")
-	WebElement busTab;
+	private WebElement busTab;
 	
     @FindBy(xpath ="//label[text()='FROM']/following-sibling::input")
-    WebElement fromTextBox;
+    private WebElement fromTextBox;
     
 	@FindBy(xpath="//input[@id='autosuggestBusSRPSrcHome']")
-    WebElement fromCity;
+    private WebElement fromCity;
 	
 	@FindBy(xpath="//input[@id='autosuggestBusSRPDestHome']")
-   	WebElement toCity;
+	private WebElement toCity;
 	
 	@FindBy(xpath="//div[@class='SearchWidgetstyles__DateWrapper-sc-1mr4hwz-3 cuTZWV']")
-	WebElement travelDate;
+	private WebElement travelDate;
 	
 	@FindBy(xpath="//button[contains(text(),'Search Bus')]")
-	WebElement searchBusBtn;
+	private WebElement searchBusBtn;
 	
 	@FindBy(xpath="//span[contains(text(),'FASTEST')]")
-	WebElement fastestFilter;
+	private WebElement fastestFilter;
 	
 	@FindBy(xpath="SrpActiveCardstyles__TotalDurationWrapperDiv-sc-yk1110-20 bgtBCd")
-    WebElement firstRowViewFareButton;
+	private WebElement firstRowViewFareButton;
 	
 	@FindBy(xpath="//span[contains(text(),'SELECT SEAT')][1]")
-	WebElement selectSeat;
+	private WebElement selectSeat;
 	
 	@FindBy(xpath="//label[@class='RadioButtonstyles__RadioLabel-sc-wz601o-0 cASToK'][1]")
-	WebElement boardingPoint;
+	private WebElement boardingPoint;
 	
 	@FindBy(xpath="//label[@class='RadioButtonstyles__RadioLabel-sc-wz601o-0 cASToK'][2]")
-	WebElement droppingPoint;
+	private WebElement droppingPoint;
 	
 	@FindBy(xpath="//div[@class='SeatWithTooltipstyles__BusSleeper-sc-dkrka-1 gygcLu'][1]")
-	WebElement selectYourSeat;
+	private WebElement selectYourSeat;
 	
 	@FindBy(xpath="//button[contains(text(),'CONTINUE')]")
-	WebElement continueForPayment;
+	private WebElement continueForPayment;
 	
 	@FindBy(xpath="//header[@class='ReviewPagestyles__PageHeader-sc-fmjc42-2 ReviewPagestyles__BookingHeader-sc-fmjc42-3 zQaar']")
-	WebElement ticketDetails;
+	private WebElement ticketDetails;
 	
 	@FindBy(xpath="//section[@class='ReviewPagestyles__RightWrapper-sc-fmjc42-7 cPXnIS']")
-	WebElement fairDetails;
+	private WebElement fairDetails;
 	
 	@FindBy(id = "autoSuggest-list")
-    WebElement autoSuggest;
+	private WebElement autoSuggest;
 	
 	
 	 public BusPage() {
