@@ -1,4 +1,4 @@
-image: iatapay/maven-java11-selenium
+image: rvancea/maven-chrome-jdk8:latest
 
 build:
   stage: build
