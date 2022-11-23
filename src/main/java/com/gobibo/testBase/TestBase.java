@@ -51,7 +51,12 @@ public class TestBase {
     public static void initialize() {
         if (prop.getProperty("browser").equals("chrome")) {
             WebDriverManager.chromedriver().setup();
-            WebDriver cd = new ChromeDriver();
+            ChromeOptions options = new ChromeOptions();
+            options.addArguments("--no-sandbox");
+            options.addArguments("--disable-gpu");
+            options.addArguments("--log-level=3");
+            options.addArguments("--silent");
+            WebDriver cd = new ChromeDriver(options);
             webDriver.set(cd);
         } else if (prop.getProperty("browser").equals("FireFox")){
             WebDriverManager.firefoxdriver().setup();
