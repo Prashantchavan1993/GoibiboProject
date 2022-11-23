@@ -68,7 +68,7 @@ public class TestBase {
             capabilities.setCapability(ChromeOptions.CAPABILITY, options);
 
             try {
-                WebDriverManager.chromedriver().driverVersion("108.0.5359.22").setup();
+                WebDriverManager.chromedriver().setup();
                 WebDriver rwd = new ChromeDriver(options);
 
 //                WebDriver rwd = new RemoteWebDriver(new URL("url of node"),capabilities);
