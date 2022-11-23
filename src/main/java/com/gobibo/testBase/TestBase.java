@@ -50,14 +50,8 @@ public class TestBase {
 
     public static void initialize() {
         if (prop.getProperty("browser").equals("chrome")) {
-            WebDriverManager.chromedriver().setup();
-            ChromeOptions options = new ChromeOptions();
-            options.addArguments("--no-sandbox");
-            options.addArguments("--disable-gpu");
-            options.addArguments("--log-level=3");
-            options.addArguments("--silent");
-            options.addArguments("--disable-dev-shm-usage");
-            WebDriver cd = new ChromeDriver(options);
+//            WebDriverManager.chromedriver().setup();
+            WebDriver cd = new ChromeDriver();
             webDriver.set(cd);
         } else if (prop.getProperty("browser").equals("FireFox")){
             WebDriverManager.firefoxdriver().setup();
@@ -74,9 +68,12 @@ public class TestBase {
             capabilities.setCapability(ChromeOptions.CAPABILITY, options);
 
             try {
-                WebDriver rwd = new RemoteWebDriver(new URL("url of node"),capabilities);
+                WebDriverManager.chromedriver().driverVersion("84.0.4147.30").setup();
+                WebDriver rwd = new ChromeDriver(options);
+
+//                WebDriver rwd = new RemoteWebDriver(new URL("url of node"),capabilities);
                 webDriver.set(rwd);
-            } catch (MalformedURLException e) {
+            } catch (Exception e) {
                 e.printStackTrace();
             }
         }
