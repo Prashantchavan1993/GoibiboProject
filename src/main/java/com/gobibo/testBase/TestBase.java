@@ -56,6 +56,7 @@ public class TestBase {
             options.addArguments("--disable-gpu");
             options.addArguments("--log-level=3");
             options.addArguments("--silent");
+            options.addArguments("--disable-dev-shm-usage");
             WebDriver cd = new ChromeDriver(options);
             webDriver.set(cd);
         } else if (prop.getProperty("browser").equals("FireFox")){
