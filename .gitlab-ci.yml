@@ -1,4 +1,4 @@
-image: xrcmartins/jdk11-mvn-chrome-chromedriver:latest
+image: iatapay/maven-java11-selenium
 
 build:
   stage: build
