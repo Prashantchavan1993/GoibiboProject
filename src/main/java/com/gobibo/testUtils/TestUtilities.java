@@ -16,7 +16,7 @@ public class TestUtilities extends TestBase {
         Timestamp currentDateTime = new Timestamp(System.currentTimeMillis());
         SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmss");
         String timeStamp = sdf.format(currentDateTime);
-        File source = ((TakesScreenshot) webDriver).getScreenshotAs(OutputType.FILE);
+        File source = ((TakesScreenshot) webDriver.get()).getScreenshotAs(OutputType.FILE);
         File destination = new File(System.getProperty("user.dir")+"/ScreenShots/"+testName+timeStamp+".png");
         FileHandler.copy(source, destination);
     }
