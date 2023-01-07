@@ -63,6 +63,7 @@ public class TestBase {
             options.addArguments("--disable-gpu");
             options.addArguments("--log-level=3");
             options.addArguments("--silent");
+            options.addArguments("headless");
 
             capabilities = DesiredCapabilities.chrome();
             capabilities.setCapability(ChromeOptions.CAPABILITY, options);
