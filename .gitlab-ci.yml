@@ -2,12 +2,6 @@ image: maven:3.6.3-jdk-8
 
 before_script:
   - apt-get update
-    # List the required libraries
-  - required_libs=$(ldd /usr/local/bin/chromedriver | awk '{if (match($3,"/")){ printf("%s ",$3); }}')
-
-    # Install the necessary packages
-  - for lib in $required_libs; do apt-get -y install $(dpkg -S $lib | awk '{sub(":"," "); print $1}'); done
-
     #  - apt-get -y install libglib2.0-0
 #  - sudo apt-get install libnss3
   - apt-get install -y unzip
@@ -16,6 +10,13 @@ before_script:
   - unzip chromedriver_linux64.zip
   - mv chromedriver /usr/local/bin/chromedriver
   - chmod +x /usr/local/bin/chromedriver
+  - # List the required libraries
+  - required_libs=$(ldd /usr/local/bin/chromedriver | awk '{if (match($3,"/")){ printf("%s ",$3); }}')
+
+    # Install the necessary packages
+  - for lib in $required_libs; do apt-get -y install $(dpkg -S $lib | awk '{sub(":"," "); print $1}'); done
+
+
 
 test:
   script:
