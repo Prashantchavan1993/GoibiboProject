@@ -1,20 +1,27 @@
 image: maven:3.6.3-jdk-8
 
-before_script:
-  - apt-get update
-  - apt-get -y install libglib2.0-0
-  - apt-get -y install libnss3
-  - apt-get -y install libxcb.so.1
+variables:
+  # Use the latest version of ChromeDriver by default
+  CHROME_DRIVER_VERSION: latest
 
-  - apt-get install -y unzip
-  - CHROME_DRIVER_VERSION=`curl -sS chromedriver.storage.googleapis.com/LATEST_RELEASE`
+before_script:
+  # Install the necessary packages
+  - apt-get update
+  - apt-get install -y unzip libglib2.0-0 libnss3
+
+  # Install Google Chrome
+  - echo "deb [arch=amd64] https://dl.google.com/linux/chrome/deb/ stable main" > /etc/apt/sources.list.d/google-chrome.list
+  - wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | apt-key add -
+  - apt-get update
+  - apt-get install -y google-chrome-stable
+
+  # Download and install ChromeDriver
   - wget https://chromedriver.storage.googleapis.com/$CHROME_DRIVER_VERSION/chromedriver_linux64.zip
   - unzip chromedriver_linux64.zip
   - mv chromedriver /usr/local/bin/chromedriver
   - chmod +x /usr/local/bin/chromedriver
-  - required_libs=$(ldd /usr/local/bin/chromedriver | awk '{if (match($3,"/")){ printf("%s ",$3); }}')
-
 
 test:
   script:
+    # Run the tests using Maven and TestNG
     - mvn test
