@@ -68,7 +68,7 @@ public class TestBase {
             capabilities.setCapability(ChromeOptions.CAPABILITY, options);
 
             try {
-                WebDriverManager.chromedriver().setup();
+                WebDriverManager.chromedriver().browserInDocker().setup();
                 WebDriver rwd = new ChromeDriver(options);
 
 //                WebDriver rwd = new RemoteWebDriver(new URL("url of node"),capabilities);
