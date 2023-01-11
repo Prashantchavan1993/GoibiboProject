@@ -50,8 +50,15 @@ public class TestBase {
 
     public static void initialize() {
         if (prop.getProperty("browser").equals("chrome")) {
-//            WebDriverManager.chromedriver().setup();
-            WebDriver cd = new ChromeDriver();
+            WebDriverManager.chromedriver().setup();
+            ChromeOptions options = new ChromeOptions();
+            options.addArguments("--no-sandbox");
+            options.addArguments("--disable-gpu");
+            options.addArguments("--log-level=3");
+            options.addArguments("--silent");
+//            options.addArguments("--headless");
+
+            WebDriver cd = new ChromeDriver(options);
             webDriver.set(cd);
         } else if (prop.getProperty("browser").equals("FireFox")){
             WebDriverManager.firefoxdriver().setup();
@@ -63,7 +70,7 @@ public class TestBase {
             options.addArguments("--disable-gpu");
             options.addArguments("--log-level=3");
             options.addArguments("--silent");
-            options.addArguments("headless");
+//            options.addArguments("--headless");
 
             capabilities = DesiredCapabilities.chrome();
             capabilities.setCapability(ChromeOptions.CAPABILITY, options);
