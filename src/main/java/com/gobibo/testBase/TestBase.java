@@ -76,6 +76,12 @@ public class TestBase {
             options.addArguments("--disable-gpu");
             options.addArguments("--log-level=3");
             options.addArguments("--silent");
+            options.addArguments("--headless");
+            options.addArguments("--user-agent='Mozilla/5.0 (Windows NT 10.0;Win64) AppleWebkit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.82 Safari/537.36'");
+            options.addArguments("--accept-language='en-US,en;q=0.9,fr;q=0.8,es;q=0.7'");
+            options.addArguments("--accept-encoding='gzip, deflate, br'");
+            options.addArguments("--accept='text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'");
+
 //            options.addArguments("--headless");
 
             capabilities = DesiredCapabilities.chrome();
