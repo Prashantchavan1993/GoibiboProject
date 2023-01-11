@@ -25,3 +25,12 @@ test:
   script:
     # Run the tests using Maven and TestNG
     - mvn test
+
+  artifacts:
+    when: always
+    name: "report"
+    paths:
+    - target/surefire-reports/*
+    - ScreenShots/*
+    expire_in: 1 h
+
