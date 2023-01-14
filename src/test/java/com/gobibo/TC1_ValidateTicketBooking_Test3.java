@@ -18,7 +18,7 @@ public class TC1_ValidateTicketBooking_Test3 extends TestBase {
         String dateToSelect = "Feb 10 2022";
 
         @Test
-        public void validateTicketBooking_TC1() {
+        public void validateTicketBooking_TC3() {
             extentTest = extentReports.startTest("TC1_ValidateTicketBooking");
             log.info("Start Test :: TC1 Validate ticket booking");
             initialize();
@@ -57,5 +57,6 @@ public class TC1_ValidateTicketBooking_Test3 extends TestBase {
                 extentTest.log(LogStatus.SKIP,"Test Skipped");
             }
             extentReports.endTest(extentTest);
+            webDriver.get().quit();
         }
 }

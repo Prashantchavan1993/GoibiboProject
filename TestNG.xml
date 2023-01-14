@@ -3,9 +3,10 @@
 <suite name="GobiboTests">
     <test name="GobiboApp Test">
         <classes>
-            <class name="com.gobibo.TC1_ValidateTicketBooking_Test" />
+            <class name="com.gobibo.TC1_ValidateUserNavigationToSearchPage_Test" />
             <class name="com.gobibo.TC1_ValidateTicketBooking_Test2"/>
             <class name="com.gobibo.TC1_ValidateTicketBooking_Test3"/>
+            <class name="com.gobibo.TCID01_ValidateOneWayFlightBooking_test"/>
         </classes>
     </test>
 </suite>

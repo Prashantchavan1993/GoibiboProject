@@ -72,6 +72,7 @@ public class TC2_VlidateBusTicketBooking_Test extends TestBase{
              extentTest.log(LogStatus.SKIP,"Test Skipped");
          }
          extentReports.endTest(extentTest);
+         webDriver.get().quit();
      }
 	
 	

@@ -20,7 +20,7 @@ public class TC1_ValidateTicketBooking_Test2 extends TestBase {
 
 
         @Test
-        public void validateTicketBooking_TC1() {
+        public void validateTicketBooking_TC2() {
             extentTest = extentReports.startTest("TC1_ValidateTicketBooking");
             log.info("Start Test :: TC1 Validate ticket booking");
             initialize();
@@ -59,5 +59,6 @@ public class TC1_ValidateTicketBooking_Test2 extends TestBase {
                 extentTest.log(LogStatus.SKIP,"Test Skipped");
             }
             extentReports.endTest(extentTest);
+            webDriver.get().quit();
         }
 }

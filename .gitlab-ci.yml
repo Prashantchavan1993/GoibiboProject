@@ -32,5 +32,6 @@ test:
     paths:
     - target/surefire-reports/*
     - ScreenShots/*
+    - gobibo_Automation_Tests.html
     expire_in: 1 h
 

@@ -5,6 +5,8 @@ import com.gobibo.testBase.TestBase;
 import com.gobibo.testUtils.TestUtilities;
 import com.relevantcodes.extentreports.LogStatus;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
@@ -40,9 +42,10 @@ public class TCID01_ValidateOneWayFlightBooking_test extends TestBase {
         initialize();
 
         FlightsPage flightsPage = new FlightsPage();
-        flightsPage.selectFromDateOnCalender(fromCity);
+        flightsPage.selectFromLocation(fromCity);
         flightsPage.selectToLocation(toCity);
-        flightsPage.selectFromDateOnCalender("16 Nov '22");
+        flightsPage.clickDoneOnCalender();
+        new Actions(webDriver.get()).sendKeys(Keys.ESCAPE);
         flightsPage.clickDoneOnTravellersAndClass();
         flightsPage.clickSearchFlightsBtn();
         log.info("Clicked on search fligh btn");
@@ -73,5 +76,6 @@ public class TCID01_ValidateOneWayFlightBooking_test extends TestBase {
             extentTest.log(LogStatus.SKIP,"Test Skipped");
         }
         extentReports.endTest(extentTest);
+        webDriver.get().quit();
     }
 }

@@ -9,17 +9,15 @@ import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
+
 import java.io.IOException;
-import java.text.DateFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.Date;
 
-public class TC1_ValidateTicketBooking_Test extends TestBase {
+public class TC1_ValidateUserNavigationToSearchPage_Test extends TestBase {
         FlightsPage flightsPage;
         String fromLocation = "Pune";
         String toLocation = "Hyderabad";
-       // String dateToSelect = "May 19 2022";
        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("MMM dd yyyy");
         LocalDateTime now = LocalDateTime.now();
         String dateToSelect =  dtf.format(now);
@@ -34,7 +32,6 @@ public class TC1_ValidateTicketBooking_Test extends TestBase {
             log.info("Start Test :: TC1 Validate ticket booking");
             initialize();
             flightsPage = new FlightsPage();
-            Assert.fail();
             flightsPage.selectFromLocation(fromLocation);
             log.info("Selected From Location");
             flightsPage.selectToLocation(toLocation);
@@ -45,16 +42,9 @@ public class TC1_ValidateTicketBooking_Test extends TestBase {
             flightsPage.clickDoneOnTravellersAndClass();
             flightsPage.clickSearchFlightsBtn();
             log.info("Clicked on Search Flights button");
-            flightsPage.clickOnDurationFilter();
-            log.info("Clicked on Duration to filter flight with shortest duration");
-            flightsPage.clickOnViewFareButton();
-            log.info("Clicked on View Fare button");
-            flightsPage.clickOnBookBtn();
-            log.info("Clicked on Book button");
-            Assert.assertTrue(flightsPage.isTicketDetailsDisplayed());
-            log.info("Successfully validated ticket details are displayed");
-            Assert.assertTrue(flightsPage.isFareSummaryDisplayed());
-            log.info("Successfully validated fare summary is displayed");
+            boolean filtersDisplayed = flightsPage.isFiltersDisplayed();
+            Assert.assertTrue(filtersDisplayed);
+            System.out.println("Test Results: Successfully validated filters are displayed on flight search page");
             log.info("End Test :: TC1 Validate ticket booking");
         }
 
@@ -75,5 +65,6 @@ public class TC1_ValidateTicketBooking_Test extends TestBase {
                 extentTest.log(LogStatus.SKIP,"Test Skipped");
             }
             extentReports.endTest(extentTest);
+            webDriver.get().quit();
         }
 }
