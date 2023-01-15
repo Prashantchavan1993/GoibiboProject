@@ -49,7 +49,7 @@ public class TestBase {
     }
 
     public static void initialize() {
-        if (prop.getProperty("browser").equals("chrome")) {
+        if (prop.getProperty("browser").equalsIgnoreCase("chrome")) {
             WebDriverManager.chromedriver().setup();
             ChromeOptions options = new ChromeOptions();
             options.addArguments("--no-sandbox");
@@ -59,11 +59,11 @@ public class TestBase {
 
             WebDriver cd = new ChromeDriver(options);
             webDriver.set(cd);
-        } else if (prop.getProperty("browser").equals("FireFox")){
+        } else if (prop.getProperty("browser").equalsIgnoreCase("FireFox")){
             WebDriverManager.firefoxdriver().setup();
             WebDriver fd = new FirefoxDriver();
             webDriver.set(fd);
-        } else if (prop.getProperty("browser").equals("remoteChrome")){
+        } else if (prop.getProperty("browser").equalsIgnoreCase("remoteChrome")){
             ChromeOptions options = new ChromeOptions();
             options.addArguments("--no-sandbox");
             options.addArguments("--disable-gpu");
