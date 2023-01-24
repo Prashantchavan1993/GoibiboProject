@@ -9,7 +9,7 @@ before_script:
   - apt-get update
   - apt-get install -y unzip libglib2.0-0 libnss3
 
-  # Install Google Chrome
+
   - echo "deb [arch=amd64] https://dl.google.com/linux/chrome/deb/ stable main" > /etc/apt/sources.list.d/google-chrome.list
   - wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | apt-key add -
   - apt-get update
